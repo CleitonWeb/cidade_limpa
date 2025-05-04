@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coleta de Resíduos - São Luís</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/script.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="quadro-destaque">
+        <h1 class="titulo-com-icone">
+          <span id="titulo-animado"></span>
+          <img src="./img/icone-reciclagem.png" alt="Ícone de reciclagem" class="titulo-icone">
+        </h1>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="#" onclick="showTab('home')">Home</a></li>
+          <li><a href="#" onclick="showTab('info')">Informações</a></li>
+          <li><a href="#" onclick="showTab('pontos')">Coleta/Horários</a></li>
+          <li><a href="#" onclick="showTab('reclamacoes')">Reclamações</a></li>
+          <li><a href="#" onclick="showTab('denuncias')">Denúncias</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Setas laterais -->
+  <div class="navegacao-lateral">
+    <button id="seta-esquerda">&#10094;</button>
+    <button id="seta-direita">&#10095;</button>
+  </div>
+
+  <main>
+    <!-- ABA HOME -->
+    <div id="home" class="tab-content active">
+      <div class="card reveal">
+        <img src="./img/icone-mao-planeta.png" alt="Ícone Mãos com Planeta" class="icon" />
+        <h2>Bem-vindo</h2>
+        <p>Seu guia para reciclagem e Cidadania ecológica no Descarte de Resíduos em São Luís-MA.</p>
+      </div>
+
+      <div class="info-section reveal">
+        <div class="info-text" id="texto-home"></div>
+        <div class="divider"></div>
+        <div class="info-image reveal" style="flex-direction: column; gap: 40px;">
+          <img src="./img/reciclagem-no-chao.png" alt="Símbolo da reciclagem no chão cercado por lixo"
+            style="width: 100%; max-width: 600px; height: auto; display: block; margin: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <img src="./img/coleta-pessoas.png" alt="Pessoas coletando lixo em grupo"
+            style="width: 100%; max-width: 600px; height: auto; display: block; margin: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <img src="./img/lixeiras1.png" alt="Lixeiras coloridas de coleta seletiva"
+            style="width: 100%; max-width: 600px; height: auto; display: block; margin: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        </div>
+      </div>
+    </div> <!-- Fechamentoda aba HOME -->
+    <!-- ABA INFORMAÇÕES -->
+    <div id="info" class="tab-content">
+      <div class="card reveal">
+        <img src="https://cdn-icons-png.flaticon.com/512/4205/4205840.png" alt="Ícone Info" class="icon" />
+        <h2>Informações de Seleção</h2>
+        <p>Aqui você encontra detalhes sobre os critérios de separação dos resíduos sólidos...</p>
+      </div>
+    </div>
+    <!-- ABA PONTOS -->
+    <div id="pontos" class="tab-content">
+      <div class="card reveal">
+        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Ícone Mapa" class="icon" />
+        <h2>Pontos de Coleta e Horários</h2>
+        <p>Consulte os locais disponíveis para descarte de recicláveis...</p>
+      </div>
+    </div>
+    <!-- ABA RECLAMAÇÕES -->
+    <div id="reclamacoes" class="tab-content">
+      <div class="card reveal">
+        <img src="https://cdn-icons-png.flaticon.com/512/134/134932.png" alt="Ícone Fala" class="icon" />
+        <h2>Reclamações</h2>
+        <p>Teve algum problema com o serviço de coleta? Envie sua reclamação...</p>
+      </div>
+    </div>
+    <!-- ABA DENÚNCIAS -->
+    <div id="denuncias" class="tab-content">
+      <div class="card reveal">
+        <img src="https://cdn-icons-png.flaticon.com/512/595/595067.png" alt="Ícone Alerta" class="icon" />
+        <h2>Denúncias</h2>
+        <p>Presenciou descarte irregular de lixo? Faça sua denúncia...</p>
+      </div>
+    </div>
+  </main>
+<!-- Rodapé da Página -->
+  <footer>
+    <p>&copy; 2025 Coleta SLZ - Todos os direitos reservados.</p>
+  </footer>
+  <!-- Acessibilidade -->
+  <div id="acessibilidade">
+    <button onclick="aumentarContraste()" title="Aumentar contraste">🖐️</button>
+    <button onclick="modoLeitura()" title="Modo leitura">👁️</button>
+  </div>
+</body>
+</html>
