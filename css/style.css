@@ -175,6 +175,15 @@ footer {
 .tab-content.active {
   display: block;
 }
+
+.mapa-interativo {
+  display: flex; 
+  justify-content: center; 
+  margin: auto;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
 /* === Card principal === */
 .card {
   background-color: #6aa84f;

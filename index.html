@@ -21,7 +21,7 @@
         <ul class="menu">
           <li><a href="#" onclick="showTab('home')">Home</a></li>
           <li><a href="#" onclick="showTab('info')">Informações</a></li>
-          <li><a href="#" onclick="showTab('pontos')">Coleta/Horários</a></li>
+          <li><a href="#" onclick="showTab('pontos')">EcoPontos</a></li>
           <li><a href="#" onclick="showTab('reclamacoes')">Reclamações</a></li>
           <li><a href="#" onclick="showTab('denuncias')">Denúncias</a></li>
         </ul>
@@ -65,13 +65,21 @@
         <p>Aqui você encontra detalhes sobre os critérios de separação dos resíduos sólidos...</p>
       </div>
     </div>
-    <!-- ABA PONTOS -->
+    <!-- ABA ECOPONTOS -->
     <div id="pontos" class="tab-content">
       <div class="card reveal">
         <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Ícone Mapa" class="icon" />
-        <h2>Pontos de Coleta e Horários</h2>
-        <p>Consulte os locais disponíveis para descarte de recicláveis...</p>
+        <h2>Pontos de EcoPontos</h2>
+        <p>Consulte os locais disponíveis para descarte de recicláveis.</p>
+        <p> Os EcoPontos são locais públicos organizados pela prefeitura onde a população pode descartar corretamente resíduos recicláveis e outros tipos de materiais, como entulho, móveis velhos, eletrodomésticos quebrados e podas de árvores. Esses pontos contribuem para a limpeza da cidade, reduzem o impacto ambiental e promovem a destinação adequada dos resíduos. A seguir, consulte o mapa com os endereços dos EcoPontos disponíveis em sua região.</p>
       </div>
+
+       <!-- Mapa interativo dos ecopontos -->
+  <h2 style="text-align: center; margin-top: 30px;">Ecopontos de São Luís</h2>
+  <div class="mapa-interativo">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1PuP-O-fs5m0nc2XbIsC_BMzbWjLSIO7c&ehbc=2E312F" width="100%" height="600" style="border:0; border-radius: 8px;"></iframe>
+  </div>
+</div>
     </div>
     <!-- ABA RECLAMAÇÕES -->
     <div id="reclamacoes" class="tab-content">
