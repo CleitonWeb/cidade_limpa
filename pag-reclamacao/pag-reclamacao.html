@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coleta de Resíduos - São Luís</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome para ícones -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/script.js" defer></script>
+  <style>
+    .status-pendente {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+    }
+    .status-processando {
+      background-color: #cfe2ff;
+      border-left: 4px solid #0d6efd;
+    }
+    .status-resolvido {
+      background-color: #d1e7dd;
+      border-left: 4px solid #198754;
+    }
+    .card {
+      margin-bottom: 20px;
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+    .categoria-badge {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    .reclamacao-data {
+      color: #6c757d;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="quadro-destaque">
+            <h1 class="titulo-com-icone">
+                <span id="titulo-animado"></span>
+                <img src="./img/icone-reciclagem.png" alt="Ícone de reciclagem" class="titulo-icone">
+            </h1>
+            </div>
+            <nav>
+            <ul class="menu">
+                <li><a href="#" onclick="showTab('home')">Home</a></li>
+                <li><a href="#" onclick="showTab('info')">Informações</a></li>
+                <li><a href="#" onclick="showTab('pontos')">EcoPontos</a></li>
+                <li><a href="#" onclick="showTab('reclamacoes')">Reclamações</a></li>
+                <li><a href="#" onclick="showTab('denuncias')">Denúncias</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Setas laterais -->
+  <div class="navegacao-lateral">
+    <button id="seta-esquerda">&#10094;</button>
+    <button id="seta-direita">&#10095;</button>
+  </div>
+
+  <div class="container mt-4">
+    <h1 class="mb-4">Lista de Reclamações</h1>
+    
+    <!-- Filtros -->
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <select class="form-select" id="filtroCategoria">
+          <option value="">Todas as categorias</option>
+          <option value="Infraestrutura">Infraestrutura</option>
+          <option value="Segurança">Segurança</option>
+          <option value="Saneamento">Saneamento</option>
+          <option value="Transporte">Transporte</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="form-select" id="filtroStatus">
+          <option value="">Todos os status</option>
+          <option value="Pendente">Pendente</option>
+          <option value="Processando">Processando</option>
+          <option value="Resolvido">Resolvido</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control" id="pesquisa" placeholder="Pesquisar...">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary w-100">Filtrar</button>
+      </div>
+    </div>
+    
+    <!-- Lista de Reclamações usando Cards do Bootstrap -->
+     <!-- Lista de Reclamações -->
+    <div class="row" id="listaReclamacoes">
+        <!-- Os cards de reclamações serão inseridos aqui via JavaScript -->
+    </div>
+    
+    <!-- Paginação -->
+    <nav aria-label="Navegação de páginas">
+      <ul class="pagination justify-content-center mt-4">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Próxima</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
+  <!-- Modal para Detalhes da Reclamação -->
+  <div class="modal fade" id="detalhesReclamacao" tabindex="-1" aria-labelledby="detalhesReclamacaoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detalhesReclamacaoLabel">Detalhes da Reclamação</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Aqui entrariam os detalhes completos da reclamação -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

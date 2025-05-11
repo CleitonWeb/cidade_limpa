@@ -116,4 +116,85 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   // Expondo showTab globalmente se usado em HTML
   window.showTab = showTab;
+
+  // Controle do formulário de reclamações
+  const btnNovaReclamacao = document.getElementById('btnNovaReclamacao');
+  const btnFecharFormulario = document.getElementById('btnFecharFormulario');
+  const formularioReclamacao = document.getElementById('formularioReclamacao');
+  
+  // Criar overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'overlay';
+  document.body.appendChild(overlay);
+  
+  // Animação para os campos de texto
+  const formFields = document.querySelectorAll('#formReclamacao input, #formReclamacao textarea, #formReclamacao select');
+  
+  formFields.forEach(field => {
+    // Verifica o estado inicial
+    if (field.value !== '') {
+      field.classList.add('has-value');
+    }
+    
+    // Adiciona eventos
+    field.addEventListener('focus', () => {
+      field.parentElement.classList.add('focused');
+    });
+    
+    field.addEventListener('blur', () => {
+      field.parentElement.classList.remove('focused');
+    });
+    
+    field.addEventListener('input', () => {
+      if (field.value !== '') {
+        field.classList.add('has-value');
+      } else {
+        field.classList.remove('has-value');
+      }
+    });
+  });
+  
+  // Comportamento para o select
+  const selectField = document.querySelector('#categoria');
+  selectField.addEventListener('change', function() {
+    if (this.value !== '') {
+      this.classList.add('has-value');
+    } else {
+      this.classList.remove('has-value');
+    }
+  });
+
+  // Função para abrir o formulário
+  function abrirFormulario() {
+    formularioReclamacao.classList.remove('hidden');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Função para fechar o formulário
+  function fecharFormulario() {
+    formularioReclamacao.classList.add('hidden');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Event listeners
+  btnNovaReclamacao.addEventListener('click', abrirFormulario);
+  btnFecharFormulario.addEventListener('click', fecharFormulario);
+  overlay.addEventListener('click', fecharFormulario);
+
+  // Fechar formulário com a tecla ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !formularioReclamacao.classList.contains('hidden')) {
+      fecharFormulario();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (formularioReclamacao.style.display !== 'none') {
+      if (!formularioReclamacao.contains(e.target) && !btnNovaReclamacao.contains(e.target)) {
+        fecharFormulario();
+      }
+    }
+  });
 });
