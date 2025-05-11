@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coleta de Resíduos - São Luís</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/script.js" defer></script>
+  <script type="module" src="./js/reclamacaoApi.js"></script>
+  <script type="module" src="./js/reclamacao.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="quadro-destaque">
+        <h1 class="titulo-com-icone">
+          <span id="titulo-animado"></span>
+          <img src="./img/icone-reciclagem.png" alt="Ícone de reciclagem" class="titulo-icone">
+        </h1>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="#" onclick="showTab('home')">Home</a></li>
+          <li><a href="#" onclick="showTab('info')">Informações</a></li>
+          <li><a href="#" onclick="showTab('pontos')">EcoPontos</a></li>
+          <li><a href="#" onclick="showTab('reclamacoes')">Reclamações</a></li>
+          <li><a href="#" onclick="showTab('denuncias')">Denúncias</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Setas laterais -->
+  <div class="navegacao-lateral">
+    <button id="seta-esquerda">&#10094;</button>
+    <button id="seta-direita">&#10095;</button>
+  </div>
+
+  <main>
+    <!-- ABA RECLAMAÇÕES -->
+    <div id="reclamacoes" class="tab-content">
+        <div class="card reveal">
+            <img src="https://cdn-icons-png.flaticon.com/512/134/134932.png" alt="Ícone Fala" class="icon" />
+            <h2>Reclamações</h2>
+            <p>Teve algum problema com o serviço de coleta?</p>
+            <button id="btnNovaReclamacao" class="btn-submit">Envie sua reclamação</button>
+        </div>
+    </div>
+    
+    <div id="formularioReclamacao" class="card formulario-container hidden">
+      <div class="formulario-header">
+        <h2>Nova Reclamação</h2>
+        <button id="btnFecharFormulario" class="btn-fechar">&times;</button>
+      </div>
+      <form id="formReclamacao">
+        <div class="form-group">
+          <input type="text" id="nome" required placeholder="Seu nome completo">
+          <label for="nome">Nome Pessoa</label>
+        </div>
+        
+        <div class="form-group">
+          <select id="categoria" required>
+            <option value="" selected disabled hidden></option>
+            <option value="Infraestrutura">Infraestrutura</option>
+            <option value="Atendimento">Atendimento</option>
+            <option value="Serviços Públicos">Serviços Públicos</option>
+            <option value="Segurança">Segurança</option>
+            <option value="Outro">Outro</option>
+          </select>
+          <label for="categoria">Categoria</label>
+        </div>
+        
+        <div class="form-group">
+          <textarea id="descricao" rows="4" required placeholder="Descreva detalhadamente sua reclamação"></textarea>
+          <label for="descricao">Descrição</label>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="rua" required placeholder="Nome da rua">
+            <label for="rua">Rua</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" id="numero" required placeholder="Nº">
+            <label for="numero">Número</label>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <input type="text" id="bairro" required placeholder="Nome do bairro">
+          <label for="bairro">Bairro</label>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="cidade" required placeholder="Nome da cidade">
+            <label for="cidade">Cidade</label>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" id="estado" required placeholder="Estado">
+            <label for="estado">Estado</label>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-submit">Enviar Reclamação</button>
+      </form>
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <h2>Reclamações</h2>
+            
+            <div id="listaReclamacoes">
+                <p>Carregando reclamações...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalDetalhe" class="modal-overlay">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2>Detalhes da Reclamação</h2>
+          <button class="btn-fechar-modal" id="btnFecharModalX">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+          <div id="detalhesReclamacao" class="detalhes-reclamacao">
+            <!-- O conteúdo será preenchido dinamicamente via JavaScript -->
+          </div>
+          
+          <div id="areaResposta" class="area-resposta hidden">
+            <h3>Atualizar Situação</h3>
+            <form id="formReclamacao">
+              <div class="form-group">
+                <select id="novoStatus" required>
+                  <option value="pendente">Pendente</option>
+                  <option value="em-analise">Em Análise</option>
+                  <option value="resolvido">Resolvido</option>
+                  <option value="rejeitado">Rejeitado</option>
+                </select>
+                <label for="novoStatus">Status</label>
+              </div>
+              
+              <div class="form-group"> 
+                <textarea id="resposta" rows="4" placeholder="Digite uma resposta para esta reclamação..."></textarea>
+                <label for="resposta">Resposta:</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <button id="btnFecharModal" class="btn btn-secundario">Fechar</button>
+          <button id="btnAtualizarStatus" class="btn btn-primario hidden">Salvar Alterações</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé da Página -->
+  <footer>
+    <p>&copy; 2025 Coleta SLZ - Todos os direitos reservados.</p>
+  </footer>
+  <!-- Acessibilidade -->
+  <div id="acessibilidade">
+    <button onclick="aumentarContraste()" title="Aumentar contraste">🖐️</button>
+    <button onclick="modoLeitura()" title="Modo leitura">👁️</button>
+  </div>
+</body>

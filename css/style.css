@@ -369,4 +369,648 @@ footer {
   100% { left: 100%; }
 }
 
+.formulario-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  padding: 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
 
+.formulario-container.hidden {
+  display: none;
+  opacity: 0;
+  transform: translate(-50%, -60%);
+}
+
+.formulario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(to right, #2e7d32, #66bb6a);
+  color: white;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.formulario-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+  animation: slideGlow 2.5s infinite;
+  z-index: 0;
+}
+
+.formulario-header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+/* Botões */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primario {
+  background: linear-gradient(to right, #2e7d32, #66bb6a);
+  color: white;
+}
+
+.btn-primario:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 187, 106, 0.4);
+}
+
+.btn-secundario {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.btn-secundario:hover {
+  background-color: #d5d5d5;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.btn:hover::after {
+  left: 100%;
+}
+
+.btn-fechar {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-fechar:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+#formReclamacao {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #555;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  pointer-events: none;
+  background: white;
+  padding: 0 0.25rem;
+}
+
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group select:focus ~ label,
+.form-group select:not([value=""]) ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: transparent;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2e7d32;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+  background: white;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.btn-submit {
+  background: linear-gradient(to right, #2e7d32, #66bb6a);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 187, 106, 0.4);
+}
+
+.btn-submit::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.btn-submit:hover::after {
+  left: 100%;
+}
+
+/* Animação para o formulário */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.formulario-container:not(.hidden) {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Estilizando o scrollbar */
+.formulario-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.formulario-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.formulario-container::-webkit-scrollbar-thumb {
+  background: #66bb6a;
+  border-radius: 10px;
+}
+
+.formulario-container::-webkit-scrollbar-thumb:hover {
+  background: #2e7d32;
+}
+/* Estilo para campos inválidos */
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+  border-color: #e57373;
+}
+
+.form-group input:invalid:focus:not(:placeholder-shown),
+.form-group textarea:invalid:focus:not(:placeholder-shown) {
+  box-shadow: 0 0 0 3px rgba(229, 115, 115, 0.1);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.form-control:focus {
+  border-color: #2e7d32;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+  background: white;
+}
+
+/* Container principal das reclamações */
+.reclamacoes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 30px 0;
+  width: 100%;
+}
+
+/* Card de reclamação estilizado */
+.reclamacao-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.reclamacao-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Cabeçalho do card */
+.reclamacao-header {
+  background: linear-gradient(to right, #2e7d32, #66bb6a);
+  color: white;
+  padding: 16px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.reclamacao-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+  animation: slideGlow 2.5s infinite;
+  z-index: 0;
+}
+
+.reclamacao-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+/* Corpo do card */
+.reclamacao-body {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.reclamacao-body p {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.descricao-reclamacao {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+  font-style: italic;
+  color: #666;
+}
+
+.data-reclamacao {
+  font-size: 1rem;
+  color: #999;
+  position: relative;
+  text-align: right;
+}
+
+/* Rodapé do card */
+.reclamacao-footer {
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos para os badges de status */
+.badge {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.status-pendente {
+  background-color: #2196F3;
+  color: white;
+}
+
+.status-em-analise {
+  background-color: #FF9800;
+  color: white;
+}
+
+.status-resolvido {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.status-rejeitado {
+  background-color: #F44336;
+  color: white;
+}
+
+/* Estilo para o botão de detalhes */
+.btn-detalhe {
+  background: linear-gradient(to right, #2e7d32, #66bb6a);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-detalhe:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 187, 106, 0.4);
+}
+
+.btn-detalhe::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.btn-detalhe:hover::after {
+  left: 100%;
+}
+
+/* Mensagem quando não há reclamações */
+.sem-reclamacoes {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 1.2rem;
+  color: #666;
+  background-color: rgba(46, 125, 50, 0.05);
+  border-radius: 12px;
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+  .reclamacoes-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Overlay do modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Container do modal */
+.modal-container {
+  background-color: white;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-overlay.active .modal-container {
+  transform: translateY(0);
+}
+
+/* Cabeçalho do modal */
+.modal-header {
+  background: linear-gradient(to right, #2e7d32, #66bb6a);
+  color: white;
+  padding: 1.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+  animation: slideGlow 2.5s infinite;
+  z-index: 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+/* Botão fechar */
+.btn-fechar-modal {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-fechar-modal:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Corpo do modal */
+.modal-body {
+  padding: 2rem;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* Detalhes da reclamação */
+.detalhes-reclamacao {
+  margin-bottom: 2rem;
+}
+
+.detalhes-reclamacao h3 {
+  color: #2e7d32;
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.detalhes-reclamacao p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Área de resposta */
+.area-resposta {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+}
+
+.area-resposta h3 {
+  color: #2e7d32;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Rodapé do modal */
+.modal-footer {
+  padding: 1.5rem 2rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* Animação do brilho */
+@keyframes slideGlow {
+  0% { left: -50%; }
+  100% { left: 100%; }
+}
+
+/* Classe para esconder elementos */
+.hidden {
+  display: none !important;
+}
