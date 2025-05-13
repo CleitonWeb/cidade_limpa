@@ -7,7 +7,7 @@ require('dotenv').config();
 
 // Registrar plugins
 fastify.register(cors, {
-  origin: 'https://cidade-limpa.vercel.app', // Em produção, você deve restringir isto para os domínios permitidos
+  origin: '*', // Em produção, você deve restringir isto para os domínios permitidos
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 });
 
