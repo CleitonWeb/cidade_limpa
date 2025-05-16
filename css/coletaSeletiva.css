@@ -1,0 +1,105 @@
+ body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #2e8b57; /* Verde escuro */
+        }
+
+        h3 {
+            border-bottom: 2px solid #2e8b57;
+            padding-bottom: 10px;
+            margin-top: 25px;
+        }
+
+        .material {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .material-title {
+            font-weight: bold;
+            color: #007bff; /* Azul */
+            margin-bottom: 5px;
+        }
+
+        .material-list {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+
+        .coleta-seletiva {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .coleta-item {
+            margin-bottom: 10px;
+        }
+
+        .coleta-title {
+            font-weight: bold;
+            color: #ff8c00; /* Laranja */
+            margin-bottom: 5px;
+        }
+
+        .dica-importante {
+            background-color: #e0f7fa; /* Azul claro */
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #008080; /* Teal */
+        }
+
+        .beneficios {
+            margin-top: 25px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .beneficios-title {
+            font-weight: bold;
+            color: #2e8b57; /* Verde escuro */
+            margin-bottom: 10px;
+        }
+
+        .beneficios-list {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+
+        .contato {
+            margin-top: 25px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .contato-title {
+            font-weight: bold;
+            color: #800080; /* Roxo */
+            margin-bottom: 10px;
+        }
