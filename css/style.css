@@ -44,7 +44,7 @@ body {
 /* === Quadro destaque com brilho animado === */
 .quadro-destaque {
   background: linear-gradient(to right, #ffffff, #e8f5e9);
-  padding: 20px 30px;
+  padding: 18px 26px;
   border-left: 8px solid #2e7d32;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -113,8 +113,8 @@ header {
 /* === Container do header === */
 .header-container {
   width: 100%;
-  max-width: 1400px;
-  padding: 0 40px;
+  max-width: 1200px;
+  padding: 0 20px;
   margin: auto;
   display: flex;
   justify-content: space-between;
