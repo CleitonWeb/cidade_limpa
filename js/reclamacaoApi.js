@@ -3,7 +3,7 @@
 class ReclamacaoAPI {
     constructor() {
       //this.endpoint = `http://localhost:8080/api/reclamacoes`;
-      this.endpoint = `https://cidade-limpa.vercel.app/api/reclamacoes`;
+      this.endpoint = `https://cidade-limpa.onrender.com/api/reclamacoes`;
     }
   
     // Método auxiliar para requisições HTTP
